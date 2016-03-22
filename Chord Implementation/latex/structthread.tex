@@ -1,0 +1,91 @@
+\hypertarget{structthread}{\section{thread Struct Reference}
+\label{structthread}\index{thread@{thread}}
+}
+
+
+{\ttfamily \#include $<$My\+Thread.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structthread_a1bd7dbc907bd42ad24b2ca7684374e0c}{thread\+I\+D}
+\item 
+enum \hyperlink{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State} \hyperlink{structthread_aafc49c5d0093246aabe04c0fbe7bc501}{state}
+\item 
+double \hyperlink{structthread_abe99980c7f19d46445b81fc112773181}{number\+Of\+Bursts}
+\item 
+double \hyperlink{structthread_a17b4aa92faed7890a53b692f90e55513}{total\+Exec\+Time}
+\item 
+double \hyperlink{structthread_aa57b83b2e1fe65e7772195eb8d7c733c}{total\+Sleep\+Time}
+\item 
+double \hyperlink{structthread_a35cc2bd19d37b55d551b7e1b3a184fae}{total\+Waiting\+Time}
+\item 
+int \hyperlink{structthread_a5f7295a3b573a531fc61af5e92fbf899}{fun\+Type}
+\item 
+void $\ast$ \hyperlink{structthread_a7b848d8a51a51c7c499c4bd2caa78019}{arg}
+\item 
+void $\ast$($\ast$ \hyperlink{structthread_afd0af41c9ba85bd94ef987b929d92476}{fa} )(void $\ast$)
+\item 
+void($\ast$ \hyperlink{structthread_a5599cb1af1d8c28fe2b3ca909fc25423}{f} )(void)
+\item 
+void $\ast$ \hyperlink{structthread_a33ed512db812fe3068bd059c00ea9c29}{stack}
+\item 
+jmp\+\_\+buf \hyperlink{structthread_a4b52487c0bc57b89ebc094c0ed76932c}{jbuf}
+\item 
+void $\ast$ \hyperlink{structthread_a92a58cc20d419199ed0bffb50518e4f0}{return\+Value}
+\item 
+struct \hyperlink{structlist_node}{list\+Node} $\ast$ \hyperlink{structthread_ae831c71a3ca32deabbb8868b6c5b6966}{first}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Thread Structure to store all information reagrding thread 
+
+\subsection{Member Data Documentation}
+\hypertarget{structthread_a7b848d8a51a51c7c499c4bd2caa78019}{\index{thread@{thread}!arg@{arg}}
+\index{arg@{arg}!thread@{thread}}
+\subsubsection[{arg}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ thread\+::arg}}\label{structthread_a7b848d8a51a51c7c499c4bd2caa78019}
+To distinguish between type of \hyperlink{structthread}{thread(with and without argument)} \hypertarget{structthread_a5599cb1af1d8c28fe2b3ca909fc25423}{\index{thread@{thread}!f@{f}}
+\index{f@{f}!thread@{thread}}
+\subsubsection[{f}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ thread\+::f)(void)}}\label{structthread_a5599cb1af1d8c28fe2b3ca909fc25423}
+function pointer corresponding to thread \hypertarget{structthread_afd0af41c9ba85bd94ef987b929d92476}{\index{thread@{thread}!fa@{fa}}
+\index{fa@{fa}!thread@{thread}}
+\subsubsection[{fa}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$($\ast$ thread\+::fa)(void $\ast$)}}\label{structthread_afd0af41c9ba85bd94ef987b929d92476}
+Argument to function if any \hypertarget{structthread_ae831c71a3ca32deabbb8868b6c5b6966}{\index{thread@{thread}!first@{first}}
+\index{first@{first}!thread@{thread}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf list\+Node}$\ast$ thread\+::first}}\label{structthread_ae831c71a3ca32deabbb8868b6c5b6966}
+value returned by thread/function if any \hypertarget{structthread_a5f7295a3b573a531fc61af5e92fbf899}{\index{thread@{thread}!fun\+Type@{fun\+Type}}
+\index{fun\+Type@{fun\+Type}!thread@{thread}}
+\subsubsection[{fun\+Type}]{\setlength{\rightskip}{0pt plus 5cm}int thread\+::fun\+Type}}\label{structthread_a5f7295a3b573a531fc61af5e92fbf899}
+Total time for which thread waited in queue \hypertarget{structthread_a4b52487c0bc57b89ebc094c0ed76932c}{\index{thread@{thread}!jbuf@{jbuf}}
+\index{jbuf@{jbuf}!thread@{thread}}
+\subsubsection[{jbuf}]{\setlength{\rightskip}{0pt plus 5cm}jmp\+\_\+buf thread\+::jbuf}}\label{structthread_a4b52487c0bc57b89ebc094c0ed76932c}
+stack pointer for this thread \hypertarget{structthread_abe99980c7f19d46445b81fc112773181}{\index{thread@{thread}!number\+Of\+Bursts@{number\+Of\+Bursts}}
+\index{number\+Of\+Bursts@{number\+Of\+Bursts}!thread@{thread}}
+\subsubsection[{number\+Of\+Bursts}]{\setlength{\rightskip}{0pt plus 5cm}double thread\+::number\+Of\+Bursts}}\label{structthread_abe99980c7f19d46445b81fc112773181}
+To maintain state \hypertarget{structthread_a92a58cc20d419199ed0bffb50518e4f0}{\index{thread@{thread}!return\+Value@{return\+Value}}
+\index{return\+Value@{return\+Value}!thread@{thread}}
+\subsubsection[{return\+Value}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ thread\+::return\+Value}}\label{structthread_a92a58cc20d419199ed0bffb50518e4f0}
+environment variable to save state of thread \hypertarget{structthread_a33ed512db812fe3068bd059c00ea9c29}{\index{thread@{thread}!stack@{stack}}
+\index{stack@{stack}!thread@{thread}}
+\subsubsection[{stack}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ thread\+::stack}}\label{structthread_a33ed512db812fe3068bd059c00ea9c29}
+function pointer corresponding to thread \hypertarget{structthread_aafc49c5d0093246aabe04c0fbe7bc501}{\index{thread@{thread}!state@{state}}
+\index{state@{state}!thread@{thread}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf State} thread\+::state}}\label{structthread_aafc49c5d0093246aabe04c0fbe7bc501}
+I\+D for each Thread \hypertarget{structthread_a1bd7dbc907bd42ad24b2ca7684374e0c}{\index{thread@{thread}!thread\+I\+D@{thread\+I\+D}}
+\index{thread\+I\+D@{thread\+I\+D}!thread@{thread}}
+\subsubsection[{thread\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}int thread\+::thread\+I\+D}}\label{structthread_a1bd7dbc907bd42ad24b2ca7684374e0c}
+\hypertarget{structthread_a17b4aa92faed7890a53b692f90e55513}{\index{thread@{thread}!total\+Exec\+Time@{total\+Exec\+Time}}
+\index{total\+Exec\+Time@{total\+Exec\+Time}!thread@{thread}}
+\subsubsection[{total\+Exec\+Time}]{\setlength{\rightskip}{0pt plus 5cm}double thread\+::total\+Exec\+Time}}\label{structthread_a17b4aa92faed7890a53b692f90e55513}
+How many times thread got executed \hypertarget{structthread_aa57b83b2e1fe65e7772195eb8d7c733c}{\index{thread@{thread}!total\+Sleep\+Time@{total\+Sleep\+Time}}
+\index{total\+Sleep\+Time@{total\+Sleep\+Time}!thread@{thread}}
+\subsubsection[{total\+Sleep\+Time}]{\setlength{\rightskip}{0pt plus 5cm}double thread\+::total\+Sleep\+Time}}\label{structthread_aa57b83b2e1fe65e7772195eb8d7c733c}
+Total time for which thread executed \hypertarget{structthread_a35cc2bd19d37b55d551b7e1b3a184fae}{\index{thread@{thread}!total\+Waiting\+Time@{total\+Waiting\+Time}}
+\index{total\+Waiting\+Time@{total\+Waiting\+Time}!thread@{thread}}
+\subsubsection[{total\+Waiting\+Time}]{\setlength{\rightskip}{0pt plus 5cm}double thread\+::total\+Waiting\+Time}}\label{structthread_a35cc2bd19d37b55d551b7e1b3a184fae}
+Total time for which thread was sleeping 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_my_thread_8h}{My\+Thread.\+h}\end{DoxyCompactItemize}

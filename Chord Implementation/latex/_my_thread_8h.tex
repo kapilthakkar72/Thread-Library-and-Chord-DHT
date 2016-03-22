@@ -1,0 +1,420 @@
+\hypertarget{_my_thread_8h}{\section{My\+Thread.\+h File Reference}
+\label{_my_thread_8h}\index{My\+Thread.\+h@{My\+Thread.\+h}}
+}
+{\ttfamily \#include $<$setjmp.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$sys/time.\+h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$list$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structthread}{thread}
+\item 
+struct \hyperlink{structlist_node}{list\+Node}
+\item 
+struct \hyperlink{structstatistics}{statistics}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}~((void $\ast$) 0)
+\item 
+\#define \hyperlink{_my_thread_8h_a6423a880df59733d2d9b509c7718d3a9}{S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E}~4096$\ast$20
+\item 
+\#define \hyperlink{_my_thread_8h_a94212be2394d2d37d9dfd33d07d82dba}{S\+E\+C\+O\+N\+D}~100000
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State} \{ \\*
+\hyperlink{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a71246c6a78667249653d47d58cf50c68}{novice}, 
+\hyperlink{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a620a31d3a677faaa9e000fb23967a473}{ready}, 
+\hyperlink{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8ab514bba77fe136c3a3b6f56b818f7b0c}{running}, 
+\hyperlink{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a2efc2d0821365b641f230aef9ed67446}{sleeping}, 
+\\*
+\hyperlink{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a66e84e235b9e03b6fdfc7ffe7e775de8}{suspended}, 
+\hyperlink{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a6fe87daf3403117299f4f295d3b68532}{terminated}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_my_thread_8h_ad238bef2fcb1db99559c2cda47b70e3e}{intermediate} ()
+\item 
+void \hyperlink{_my_thread_8h_abbc441924bb20f0f3cb46cce6aab6931}{sleep} (int)
+\item 
+void \hyperlink{_my_thread_8h_a58c8b2ad0ea491a6642e5e1cbd358c89}{yield} ()
+\item 
+void \hyperlink{_my_thread_8h_a4d93a0b0c1dd9dd8e34712654fc98f2c}{create\+Stats} (struct \hyperlink{structthread}{thread} $\ast$temp, struct \hyperlink{structstatistics}{statistics} $\ast$stat)
+\item 
+struct \hyperlink{structthread}{thread} $\ast$ \hyperlink{_my_thread_8h_adaf0202ee3302a24e708ccb5f2f71c28}{remove\+Thread\+From\+Queue} (struct \hyperlink{structqueue_node}{queue\+Node} $\ast$$\ast$\hyperlink{_my_thread_8h_a60de64d75454385b23995437f1d72669}{start}, struct \hyperlink{structqueue_node}{queue\+Node} $\ast$$\ast$end)
+\item 
+int \hyperlink{_my_thread_8h_a51aac62a462b3ef6eee3083c774f116f}{find\+Threadin\+Queue} (struct \hyperlink{structqueue_node}{queue\+Node} $\ast$$\ast$\hyperlink{_my_thread_8h_a60de64d75454385b23995437f1d72669}{start}, struct \hyperlink{structqueue_node}{queue\+Node} $\ast$$\ast$end, int thread\+\_\+id)
+\item 
+void \hyperlink{_my_thread_8h_a13967cf199e9d70c41f7b4c285ed6c10}{insert\+Thread\+Into\+Queue} (struct \hyperlink{structqueue_node}{queue\+Node} $\ast$$\ast$\hyperlink{_my_thread_8h_a60de64d75454385b23995437f1d72669}{start}, struct \hyperlink{structqueue_node}{queue\+Node} $\ast$$\ast$end, struct \hyperlink{structthread}{thread} $\ast$thread\+Tobe\+Inserted)
+\item 
+struct \hyperlink{structthread}{thread} $\ast$ \hyperlink{_my_thread_8h_a75951b673d581910b2b14eaa5f5b2500}{remove\+Thread\+From\+Queue\+Using\+Thread\+I\+D} (struct \hyperlink{structqueue_node}{queue\+Node} $\ast$$\ast$\hyperlink{_my_thread_8h_a60de64d75454385b23995437f1d72669}{start}, struct \hyperlink{structqueue_node}{queue\+Node} $\ast$$\ast$end, int thread\+\_\+id)
+\item 
+struct \hyperlink{structthread}{thread} $\ast$ \hyperlink{_my_thread_8h_ae3fe19f5272a28cd998b54e222b45a95}{get\+Thread\+From\+Queue\+Using\+Thread\+I\+D} (struct \hyperlink{structqueue_node}{queue\+Node} $\ast$$\ast$\hyperlink{_my_thread_8h_a60de64d75454385b23995437f1d72669}{start}, struct \hyperlink{structqueue_node}{queue\+Node} $\ast$$\ast$end, int thread\+\_\+id)
+\item 
+int \hyperlink{_my_thread_8h_a63218e0a4f2612ea9559aaa11dd20e26}{create\+With\+Args} (void $\ast$($\ast$fun)(void $\ast$), void $\ast$arg)
+\item 
+int \hyperlink{_my_thread_8h_a0ddebaef19583004b70731f4a31e7573}{create} (void($\ast$fun)(void))
+\item 
+void \hyperlink{_my_thread_8h_a6e00212ea4093aaf19148bd34bb7aa0e}{dispatch} (int a)
+\item 
+void \hyperlink{_my_thread_8h_a9277eb273c55d9b61fe955cfe5097faa}{J\+O\+I\+N} (int thread\+I\+D)
+\item 
+void $\ast$ \hyperlink{_my_thread_8h_aa291901453a14f906fe4af6b29ed9467}{Get\+Thread\+Result} (int thread\+I\+D)
+\item 
+void \hyperlink{_my_thread_8h_adc11c489f2a3d8b969278a9bec12b765}{print\+Statistics\+Of\+Thread} (struct \hyperlink{structthread}{thread} $\ast$temp)
+\item 
+void \hyperlink{_my_thread_8h_a48c58e9cfa3a76b31f5c4a070f13e9e9}{free\+Memory\+Of\+Thread} (struct \hyperlink{structthread}{thread} $\ast$temp)
+\item 
+void \hyperlink{_my_thread_8h_a60de64d75454385b23995437f1d72669}{start} ()
+\item 
+void \hyperlink{_my_thread_8h_a2c46c16e39232dfa397e1c9a662312bb}{suspend} (int thread\+I\+D\+To\+Be\+Suspended)
+\item 
+void \hyperlink{_my_thread_8h_a8a3b1f9635ac3c6c54e6c43565ff1ac2}{resume} (int thread\+I\+D\+To\+Be\+Resumed)
+\item 
+void \hyperlink{_my_thread_8h_a33a9131781a68420dba3e90b223268a2}{delete\+Thread} (int thread\+I\+D)
+\item 
+int \hyperlink{_my_thread_8h_aea93026f92028ac88f6b60cd2f3e438b}{get\+I\+D} ()
+\item 
+void \hyperlink{_my_thread_8h_a1a1e0100a5ce21da31006348ff87d336}{run} (int thread\+I\+D\+To\+Be\+Executed)
+\item 
+struct \hyperlink{structstatistics}{statistics} $\ast$ \hyperlink{_my_thread_8h_a4c880fae77f99dc4346af511fe747a1b}{get\+Status} (int thread\+I\+D)
+\item 
+void \hyperlink{_my_thread_8h_a2bbe646c052baf99f04a367ef6031d74}{clean} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_my_thread_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}
+\item 
+int \hyperlink{_my_thread_8h_a5fb7c572958b9d030934749cdd2f178e}{toggle}
+\item 
+void $\ast$ \hyperlink{_my_thread_8h_a63dc352d29ac023dbe19b3d28b7cd41d}{temp\+For\+Stack}
+\item 
+int \hyperlink{_my_thread_8h_ac77eef4f813ec344cf850b89cc68818d}{kt}
+\item 
+int \hyperlink{_my_thread_8h_a19aa07c9528fd1b126d88f36ef32dda0}{set\+Alarm}
+\item 
+struct timeval \hyperlink{_my_thread_8h_ae41c65732e352dffb0fc051a7f5a8b2f}{start\+Execution\+Time}
+\item 
+struct timeval \hyperlink{_my_thread_8h_a81b14c73770106ed8520e08a8e9edaa8}{end\+Execution\+Time}
+\item 
+struct \hyperlink{structthread}{thread} $\ast$ \hyperlink{_my_thread_8h_ae46cdb8d18aae881c0b85e19c727c6be}{current\+Executing\+Thread}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_a6c91b5cbbda22c039df6431624042e89}{start\+\_\+of\+\_\+novice} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_a690759f27262ed0e3145e03d4991d58b}{end\+\_\+of\+\_\+novice} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_ac06957dd0fae496690e951ffc0f733dd}{start\+\_\+of\+\_\+ready} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_adcd54a4c9aff089aaa3c0c0df48c6088}{end\+\_\+of\+\_\+ready} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_a16ba5bc83c5b9a60c81b5475be07f816}{start\+\_\+of\+\_\+suspended} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_a0b57ef35f006ae2ac9f5ef76ad98ccea}{end\+\_\+of\+\_\+suspended} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_a8819a32959ab5272c6a82ca14ddb1da4}{start\+\_\+of\+\_\+running} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_a0f7cc928594eb679f2a164cbf28013b1}{end\+\_\+of\+\_\+running} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_a8a78afb7c3fe0e91113fbea8ac849fb7}{start\+\_\+of\+\_\+sleeping} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_acb14dbca10017f9ec5e6d443142d54ab}{end\+\_\+of\+\_\+sleeping} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_a66ff13e810c7af7d461ec2178f842c9a}{start\+\_\+of\+\_\+terminated} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+struct \hyperlink{structqueue_node}{queue\+Node} $\ast$ \hyperlink{_my_thread_8h_a5134c07a5eebc44c2ecc74233cd4c5a4}{end\+\_\+of\+\_\+terminated} =\hyperlink{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{\index{My\+Thread.\+h@{My\+Thread.\+h}!N\+U\+L\+L@{N\+U\+L\+L}}
+\index{N\+U\+L\+L@{N\+U\+L\+L}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{N\+U\+L\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+U\+L\+L~((void $\ast$) 0)}}\label{_my_thread_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}
+\hypertarget{_my_thread_8h_a94212be2394d2d37d9dfd33d07d82dba}{\index{My\+Thread.\+h@{My\+Thread.\+h}!S\+E\+C\+O\+N\+D@{S\+E\+C\+O\+N\+D}}
+\index{S\+E\+C\+O\+N\+D@{S\+E\+C\+O\+N\+D}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{S\+E\+C\+O\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+C\+O\+N\+D~100000}}\label{_my_thread_8h_a94212be2394d2d37d9dfd33d07d82dba}
+After this much time alarm will be called \hypertarget{_my_thread_8h_a6423a880df59733d2d9b509c7718d3a9}{\index{My\+Thread.\+h@{My\+Thread.\+h}!S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E@{S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E}}
+\index{S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E@{S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+A\+C\+K\+\_\+\+S\+I\+Z\+E~4096$\ast$20}}\label{_my_thread_8h_a6423a880df59733d2d9b509c7718d3a9}
+Stack Size of a thread 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{\index{My\+Thread.\+h@{My\+Thread.\+h}!State@{State}}
+\index{State@{State}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf State}}}\label{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8}
+This will maintain the current state of thread \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{novice@{novice}!My\+Thread.\+h@{My\+Thread.\+h}}\index{My\+Thread.\+h@{My\+Thread.\+h}!novice@{novice}}\item[{\em 
+\hypertarget{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a71246c6a78667249653d47d58cf50c68}{novice}\label{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a71246c6a78667249653d47d58cf50c68}
+}]\index{ready@{ready}!My\+Thread.\+h@{My\+Thread.\+h}}\index{My\+Thread.\+h@{My\+Thread.\+h}!ready@{ready}}\item[{\em 
+\hypertarget{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a620a31d3a677faaa9e000fb23967a473}{ready}\label{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a620a31d3a677faaa9e000fb23967a473}
+}]\index{running@{running}!My\+Thread.\+h@{My\+Thread.\+h}}\index{My\+Thread.\+h@{My\+Thread.\+h}!running@{running}}\item[{\em 
+\hypertarget{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8ab514bba77fe136c3a3b6f56b818f7b0c}{running}\label{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8ab514bba77fe136c3a3b6f56b818f7b0c}
+}]\index{sleeping@{sleeping}!My\+Thread.\+h@{My\+Thread.\+h}}\index{My\+Thread.\+h@{My\+Thread.\+h}!sleeping@{sleeping}}\item[{\em 
+\hypertarget{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a2efc2d0821365b641f230aef9ed67446}{sleeping}\label{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a2efc2d0821365b641f230aef9ed67446}
+}]\index{suspended@{suspended}!My\+Thread.\+h@{My\+Thread.\+h}}\index{My\+Thread.\+h@{My\+Thread.\+h}!suspended@{suspended}}\item[{\em 
+\hypertarget{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a66e84e235b9e03b6fdfc7ffe7e775de8}{suspended}\label{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a66e84e235b9e03b6fdfc7ffe7e775de8}
+}]\index{terminated@{terminated}!My\+Thread.\+h@{My\+Thread.\+h}}\index{My\+Thread.\+h@{My\+Thread.\+h}!terminated@{terminated}}\item[{\em 
+\hypertarget{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a6fe87daf3403117299f4f295d3b68532}{terminated}\label{_my_thread_8h_a5d74787dedbc4e11c1ab15bf487e61f8a6fe87daf3403117299f4f295d3b68532}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{_my_thread_8h_a2bbe646c052baf99f04a367ef6031d74}{\index{My\+Thread.\+h@{My\+Thread.\+h}!clean@{clean}}
+\index{clean@{clean}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{clean}]{\setlength{\rightskip}{0pt plus 5cm}void clean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a2bbe646c052baf99f04a367ef6031d74}
+This function will free memory and will clear all queues. \hypertarget{_my_thread_8h_a0ddebaef19583004b70731f4a31e7573}{\index{My\+Thread.\+h@{My\+Thread.\+h}!create@{create}}
+\index{create@{create}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}int create (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{fun}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a0ddebaef19583004b70731f4a31e7573}
+This function will create thread for a function passed as an argument and will put it in novice queue \hypertarget{_my_thread_8h_a4d93a0b0c1dd9dd8e34712654fc98f2c}{\index{My\+Thread.\+h@{My\+Thread.\+h}!create\+Stats@{create\+Stats}}
+\index{create\+Stats@{create\+Stats}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{create\+Stats}]{\setlength{\rightskip}{0pt plus 5cm}void create\+Stats (
+\begin{DoxyParamCaption}
+\item[{struct {\bf thread} $\ast$}]{temp, }
+\item[{struct {\bf statistics} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a4d93a0b0c1dd9dd8e34712654fc98f2c}
+This function will copy stats of thread in the structure which need to be returned. \hypertarget{_my_thread_8h_a63218e0a4f2612ea9559aaa11dd20e26}{\index{My\+Thread.\+h@{My\+Thread.\+h}!create\+With\+Args@{create\+With\+Args}}
+\index{create\+With\+Args@{create\+With\+Args}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{create\+With\+Args}]{\setlength{\rightskip}{0pt plus 5cm}int create\+With\+Args (
+\begin{DoxyParamCaption}
+\item[{void $\ast$($\ast$)(void $\ast$)}]{fun, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a63218e0a4f2612ea9559aaa11dd20e26}
+This function will create thread with arguments for a function passed in argument and will put it in novice queue \hypertarget{_my_thread_8h_a33a9131781a68420dba3e90b223268a2}{\index{My\+Thread.\+h@{My\+Thread.\+h}!delete\+Thread@{delete\+Thread}}
+\index{delete\+Thread@{delete\+Thread}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{delete\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}void delete\+Thread (
+\begin{DoxyParamCaption}
+\item[{int}]{thread\+I\+D}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a33a9131781a68420dba3e90b223268a2}
+This function will delete the thread corresponding to given thread id, if it exists in the enviornment. \hypertarget{_my_thread_8h_a6e00212ea4093aaf19148bd34bb7aa0e}{\index{My\+Thread.\+h@{My\+Thread.\+h}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{dispatch}]{\setlength{\rightskip}{0pt plus 5cm}void dispatch (
+\begin{DoxyParamCaption}
+\item[{int}]{a}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a6e00212ea4093aaf19148bd34bb7aa0e}
+This function will be called very time alarm will be called and will switch btwen threads \hypertarget{_my_thread_8h_a51aac62a462b3ef6eee3083c774f116f}{\index{My\+Thread.\+h@{My\+Thread.\+h}!find\+Threadin\+Queue@{find\+Threadin\+Queue}}
+\index{find\+Threadin\+Queue@{find\+Threadin\+Queue}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{find\+Threadin\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}int find\+Threadin\+Queue (
+\begin{DoxyParamCaption}
+\item[{struct {\bf queue\+Node} $\ast$$\ast$}]{start, }
+\item[{struct {\bf queue\+Node} $\ast$$\ast$}]{end, }
+\item[{int}]{thread\+\_\+id}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a51aac62a462b3ef6eee3083c774f116f}
+This function will return 1 if thread of given id exists in the given queue else 0 \hypertarget{_my_thread_8h_a48c58e9cfa3a76b31f5c4a070f13e9e9}{\index{My\+Thread.\+h@{My\+Thread.\+h}!free\+Memory\+Of\+Thread@{free\+Memory\+Of\+Thread}}
+\index{free\+Memory\+Of\+Thread@{free\+Memory\+Of\+Thread}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{free\+Memory\+Of\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}void free\+Memory\+Of\+Thread (
+\begin{DoxyParamCaption}
+\item[{struct {\bf thread} $\ast$}]{temp}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a48c58e9cfa3a76b31f5c4a070f13e9e9}
+This function will deallocate memory allocated to temp thread \hypertarget{_my_thread_8h_aea93026f92028ac88f6b60cd2f3e438b}{\index{My\+Thread.\+h@{My\+Thread.\+h}!get\+I\+D@{get\+I\+D}}
+\index{get\+I\+D@{get\+I\+D}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{get\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}int get\+I\+D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_aea93026f92028ac88f6b60cd2f3e438b}
+This function will return the thread I\+D of the calling thread. \hypertarget{_my_thread_8h_a4c880fae77f99dc4346af511fe747a1b}{\index{My\+Thread.\+h@{My\+Thread.\+h}!get\+Status@{get\+Status}}
+\index{get\+Status@{get\+Status}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{get\+Status}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf statistics}$\ast$ get\+Status (
+\begin{DoxyParamCaption}
+\item[{int}]{thread\+I\+D}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a4c880fae77f99dc4346af511fe747a1b}
+This function will return a structure statistics will all stats corresponding to given thread I\+D. \hypertarget{_my_thread_8h_ae3fe19f5272a28cd998b54e222b45a95}{\index{My\+Thread.\+h@{My\+Thread.\+h}!get\+Thread\+From\+Queue\+Using\+Thread\+I\+D@{get\+Thread\+From\+Queue\+Using\+Thread\+I\+D}}
+\index{get\+Thread\+From\+Queue\+Using\+Thread\+I\+D@{get\+Thread\+From\+Queue\+Using\+Thread\+I\+D}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{get\+Thread\+From\+Queue\+Using\+Thread\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf thread}$\ast$ get\+Thread\+From\+Queue\+Using\+Thread\+I\+D (
+\begin{DoxyParamCaption}
+\item[{struct {\bf queue\+Node} $\ast$$\ast$}]{start, }
+\item[{struct {\bf queue\+Node} $\ast$$\ast$}]{end, }
+\item[{int}]{thread\+\_\+id}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_ae3fe19f5272a28cd998b54e222b45a95}
+This function will return the thread from queue of given id but will not remove from the queue \hypertarget{_my_thread_8h_aa291901453a14f906fe4af6b29ed9467}{\index{My\+Thread.\+h@{My\+Thread.\+h}!Get\+Thread\+Result@{Get\+Thread\+Result}}
+\index{Get\+Thread\+Result@{Get\+Thread\+Result}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{Get\+Thread\+Result}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Get\+Thread\+Result (
+\begin{DoxyParamCaption}
+\item[{int}]{thread\+I\+D}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_aa291901453a14f906fe4af6b29ed9467}
+This function will return the result after executing the thread with thread\+I\+D \hypertarget{_my_thread_8h_a13967cf199e9d70c41f7b4c285ed6c10}{\index{My\+Thread.\+h@{My\+Thread.\+h}!insert\+Thread\+Into\+Queue@{insert\+Thread\+Into\+Queue}}
+\index{insert\+Thread\+Into\+Queue@{insert\+Thread\+Into\+Queue}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{insert\+Thread\+Into\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+Thread\+Into\+Queue (
+\begin{DoxyParamCaption}
+\item[{struct {\bf queue\+Node} $\ast$$\ast$}]{start, }
+\item[{struct {\bf queue\+Node} $\ast$$\ast$}]{end, }
+\item[{struct {\bf thread} $\ast$}]{thread\+Tobe\+Inserted}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a13967cf199e9d70c41f7b4c285ed6c10}
+This function will insert the thread at the end of the given queue \hypertarget{_my_thread_8h_ad238bef2fcb1db99559c2cda47b70e3e}{\index{My\+Thread.\+h@{My\+Thread.\+h}!intermediate@{intermediate}}
+\index{intermediate@{intermediate}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{intermediate}]{\setlength{\rightskip}{0pt plus 5cm}void intermediate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_ad238bef2fcb1db99559c2cda47b70e3e}
+This function is used to perform the work after thread finishes its execution \hypertarget{_my_thread_8h_a9277eb273c55d9b61fe955cfe5097faa}{\index{My\+Thread.\+h@{My\+Thread.\+h}!J\+O\+I\+N@{J\+O\+I\+N}}
+\index{J\+O\+I\+N@{J\+O\+I\+N}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{J\+O\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}void J\+O\+I\+N (
+\begin{DoxyParamCaption}
+\item[{int}]{thread\+I\+D}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a9277eb273c55d9b61fe955cfe5097faa}
+This function helps in joining thread. Calling thread will wait till the thread with thread\+I\+D finishes. \hypertarget{_my_thread_8h_adc11c489f2a3d8b969278a9bec12b765}{\index{My\+Thread.\+h@{My\+Thread.\+h}!print\+Statistics\+Of\+Thread@{print\+Statistics\+Of\+Thread}}
+\index{print\+Statistics\+Of\+Thread@{print\+Statistics\+Of\+Thread}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{print\+Statistics\+Of\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Statistics\+Of\+Thread (
+\begin{DoxyParamCaption}
+\item[{struct {\bf thread} $\ast$}]{temp}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_adc11c489f2a3d8b969278a9bec12b765}
+This function will print statistics of thread \hypertarget{_my_thread_8h_adaf0202ee3302a24e708ccb5f2f71c28}{\index{My\+Thread.\+h@{My\+Thread.\+h}!remove\+Thread\+From\+Queue@{remove\+Thread\+From\+Queue}}
+\index{remove\+Thread\+From\+Queue@{remove\+Thread\+From\+Queue}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{remove\+Thread\+From\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf thread}$\ast$ remove\+Thread\+From\+Queue (
+\begin{DoxyParamCaption}
+\item[{struct {\bf queue\+Node} $\ast$$\ast$}]{start, }
+\item[{struct {\bf queue\+Node} $\ast$$\ast$}]{end}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_adaf0202ee3302a24e708ccb5f2f71c28}
+This function will remove first thread from the given queue \hypertarget{_my_thread_8h_a75951b673d581910b2b14eaa5f5b2500}{\index{My\+Thread.\+h@{My\+Thread.\+h}!remove\+Thread\+From\+Queue\+Using\+Thread\+I\+D@{remove\+Thread\+From\+Queue\+Using\+Thread\+I\+D}}
+\index{remove\+Thread\+From\+Queue\+Using\+Thread\+I\+D@{remove\+Thread\+From\+Queue\+Using\+Thread\+I\+D}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{remove\+Thread\+From\+Queue\+Using\+Thread\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf thread}$\ast$ remove\+Thread\+From\+Queue\+Using\+Thread\+I\+D (
+\begin{DoxyParamCaption}
+\item[{struct {\bf queue\+Node} $\ast$$\ast$}]{start, }
+\item[{struct {\bf queue\+Node} $\ast$$\ast$}]{end, }
+\item[{int}]{thread\+\_\+id}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a75951b673d581910b2b14eaa5f5b2500}
+This function will return thread by removing thread of the given id \hypertarget{_my_thread_8h_a8a3b1f9635ac3c6c54e6c43565ff1ac2}{\index{My\+Thread.\+h@{My\+Thread.\+h}!resume@{resume}}
+\index{resume@{resume}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{resume}]{\setlength{\rightskip}{0pt plus 5cm}void resume (
+\begin{DoxyParamCaption}
+\item[{int}]{thread\+I\+D\+To\+Be\+Resumed}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a8a3b1f9635ac3c6c54e6c43565ff1ac2}
+This function will remove the thread from the suspended queue and will put in ready queue \hypertarget{_my_thread_8h_a1a1e0100a5ce21da31006348ff87d336}{\index{My\+Thread.\+h@{My\+Thread.\+h}!run@{run}}
+\index{run@{run}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void run (
+\begin{DoxyParamCaption}
+\item[{int}]{thread\+I\+D\+To\+Be\+Executed}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a1a1e0100a5ce21da31006348ff87d336}
+This function will remove the thread of given thtrad I\+D from novice queue to ready queue. \hypertarget{_my_thread_8h_abbc441924bb20f0f3cb46cce6aab6931}{\index{My\+Thread.\+h@{My\+Thread.\+h}!sleep@{sleep}}
+\index{sleep@{sleep}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{sleep}]{\setlength{\rightskip}{0pt plus 5cm}void sleep (
+\begin{DoxyParamCaption}
+\item[{int}]{sec}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_abbc441924bb20f0f3cb46cce6aab6931}
+This function will put the calling thread into sleep for the specified seconds \hypertarget{_my_thread_8h_a60de64d75454385b23995437f1d72669}{\index{My\+Thread.\+h@{My\+Thread.\+h}!start@{start}}
+\index{start@{start}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a60de64d75454385b23995437f1d72669}
+This function will move all threads from novice queue to ready queue and will start execution \hypertarget{_my_thread_8h_a2c46c16e39232dfa397e1c9a662312bb}{\index{My\+Thread.\+h@{My\+Thread.\+h}!suspend@{suspend}}
+\index{suspend@{suspend}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{suspend}]{\setlength{\rightskip}{0pt plus 5cm}void suspend (
+\begin{DoxyParamCaption}
+\item[{int}]{thread\+I\+D\+To\+Be\+Suspended}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a2c46c16e39232dfa397e1c9a662312bb}
+This function will put the thread in suspend state. Thread is identified from the thread I\+D passed as an argument. \hypertarget{_my_thread_8h_a58c8b2ad0ea491a6642e5e1cbd358c89}{\index{My\+Thread.\+h@{My\+Thread.\+h}!yield@{yield}}
+\index{yield@{yield}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{yield}]{\setlength{\rightskip}{0pt plus 5cm}void yield (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_my_thread_8h_a58c8b2ad0ea491a6642e5e1cbd358c89}
+This function will leave its quantum and will allow others to execute. 
+
+\subsection{Variable Documentation}
+\hypertarget{_my_thread_8h_ae46cdb8d18aae881c0b85e19c727c6be}{\index{My\+Thread.\+h@{My\+Thread.\+h}!current\+Executing\+Thread@{current\+Executing\+Thread}}
+\index{current\+Executing\+Thread@{current\+Executing\+Thread}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{current\+Executing\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf thread}$\ast$ current\+Executing\+Thread}}\label{_my_thread_8h_ae46cdb8d18aae881c0b85e19c727c6be}
+this will point to thread which is currently executing \hypertarget{_my_thread_8h_a690759f27262ed0e3145e03d4991d58b}{\index{My\+Thread.\+h@{My\+Thread.\+h}!end\+\_\+of\+\_\+novice@{end\+\_\+of\+\_\+novice}}
+\index{end\+\_\+of\+\_\+novice@{end\+\_\+of\+\_\+novice}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{end\+\_\+of\+\_\+novice}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ end\+\_\+of\+\_\+novice ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_a690759f27262ed0e3145e03d4991d58b}
+\hypertarget{_my_thread_8h_adcd54a4c9aff089aaa3c0c0df48c6088}{\index{My\+Thread.\+h@{My\+Thread.\+h}!end\+\_\+of\+\_\+ready@{end\+\_\+of\+\_\+ready}}
+\index{end\+\_\+of\+\_\+ready@{end\+\_\+of\+\_\+ready}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{end\+\_\+of\+\_\+ready}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ end\+\_\+of\+\_\+ready ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_adcd54a4c9aff089aaa3c0c0df48c6088}
+\hypertarget{_my_thread_8h_a0f7cc928594eb679f2a164cbf28013b1}{\index{My\+Thread.\+h@{My\+Thread.\+h}!end\+\_\+of\+\_\+running@{end\+\_\+of\+\_\+running}}
+\index{end\+\_\+of\+\_\+running@{end\+\_\+of\+\_\+running}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{end\+\_\+of\+\_\+running}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ end\+\_\+of\+\_\+running ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_a0f7cc928594eb679f2a164cbf28013b1}
+\hypertarget{_my_thread_8h_acb14dbca10017f9ec5e6d443142d54ab}{\index{My\+Thread.\+h@{My\+Thread.\+h}!end\+\_\+of\+\_\+sleeping@{end\+\_\+of\+\_\+sleeping}}
+\index{end\+\_\+of\+\_\+sleeping@{end\+\_\+of\+\_\+sleeping}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{end\+\_\+of\+\_\+sleeping}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ end\+\_\+of\+\_\+sleeping ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_acb14dbca10017f9ec5e6d443142d54ab}
+\hypertarget{_my_thread_8h_a0b57ef35f006ae2ac9f5ef76ad98ccea}{\index{My\+Thread.\+h@{My\+Thread.\+h}!end\+\_\+of\+\_\+suspended@{end\+\_\+of\+\_\+suspended}}
+\index{end\+\_\+of\+\_\+suspended@{end\+\_\+of\+\_\+suspended}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{end\+\_\+of\+\_\+suspended}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ end\+\_\+of\+\_\+suspended ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_a0b57ef35f006ae2ac9f5ef76ad98ccea}
+\hypertarget{_my_thread_8h_a5134c07a5eebc44c2ecc74233cd4c5a4}{\index{My\+Thread.\+h@{My\+Thread.\+h}!end\+\_\+of\+\_\+terminated@{end\+\_\+of\+\_\+terminated}}
+\index{end\+\_\+of\+\_\+terminated@{end\+\_\+of\+\_\+terminated}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{end\+\_\+of\+\_\+terminated}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ end\+\_\+of\+\_\+terminated ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_a5134c07a5eebc44c2ecc74233cd4c5a4}
+\hypertarget{_my_thread_8h_a81b14c73770106ed8520e08a8e9edaa8}{\index{My\+Thread.\+h@{My\+Thread.\+h}!end\+Execution\+Time@{end\+Execution\+Time}}
+\index{end\+Execution\+Time@{end\+Execution\+Time}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{end\+Execution\+Time}]{\setlength{\rightskip}{0pt plus 5cm}struct timeval end\+Execution\+Time}}\label{_my_thread_8h_a81b14c73770106ed8520e08a8e9edaa8}
+\hypertarget{_my_thread_8h_ac77eef4f813ec344cf850b89cc68818d}{\index{My\+Thread.\+h@{My\+Thread.\+h}!kt@{kt}}
+\index{kt@{kt}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{kt}]{\setlength{\rightskip}{0pt plus 5cm}int kt}}\label{_my_thread_8h_ac77eef4f813ec344cf850b89cc68818d}
+\hypertarget{_my_thread_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{\index{My\+Thread.\+h@{My\+Thread.\+h}!n@{n}}
+\index{n@{n}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}int n}}\label{_my_thread_8h_a76f11d9a0a47b94f72c2d0e77fb32240}
+\hypertarget{_my_thread_8h_a19aa07c9528fd1b126d88f36ef32dda0}{\index{My\+Thread.\+h@{My\+Thread.\+h}!set\+Alarm@{set\+Alarm}}
+\index{set\+Alarm@{set\+Alarm}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{set\+Alarm}]{\setlength{\rightskip}{0pt plus 5cm}int set\+Alarm}}\label{_my_thread_8h_a19aa07c9528fd1b126d88f36ef32dda0}
+\hypertarget{_my_thread_8h_a6c91b5cbbda22c039df6431624042e89}{\index{My\+Thread.\+h@{My\+Thread.\+h}!start\+\_\+of\+\_\+novice@{start\+\_\+of\+\_\+novice}}
+\index{start\+\_\+of\+\_\+novice@{start\+\_\+of\+\_\+novice}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{start\+\_\+of\+\_\+novice}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ start\+\_\+of\+\_\+novice ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_a6c91b5cbbda22c039df6431624042e89}
+To keep track of novice queue \hypertarget{_my_thread_8h_ac06957dd0fae496690e951ffc0f733dd}{\index{My\+Thread.\+h@{My\+Thread.\+h}!start\+\_\+of\+\_\+ready@{start\+\_\+of\+\_\+ready}}
+\index{start\+\_\+of\+\_\+ready@{start\+\_\+of\+\_\+ready}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{start\+\_\+of\+\_\+ready}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ start\+\_\+of\+\_\+ready ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_ac06957dd0fae496690e951ffc0f733dd}
+To keep track of ready queue \hypertarget{_my_thread_8h_a8819a32959ab5272c6a82ca14ddb1da4}{\index{My\+Thread.\+h@{My\+Thread.\+h}!start\+\_\+of\+\_\+running@{start\+\_\+of\+\_\+running}}
+\index{start\+\_\+of\+\_\+running@{start\+\_\+of\+\_\+running}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{start\+\_\+of\+\_\+running}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ start\+\_\+of\+\_\+running ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_a8819a32959ab5272c6a82ca14ddb1da4}
+To keep track of running queue \hypertarget{_my_thread_8h_a8a78afb7c3fe0e91113fbea8ac849fb7}{\index{My\+Thread.\+h@{My\+Thread.\+h}!start\+\_\+of\+\_\+sleeping@{start\+\_\+of\+\_\+sleeping}}
+\index{start\+\_\+of\+\_\+sleeping@{start\+\_\+of\+\_\+sleeping}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{start\+\_\+of\+\_\+sleeping}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ start\+\_\+of\+\_\+sleeping ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_a8a78afb7c3fe0e91113fbea8ac849fb7}
+To keep track of sleeping queue \hypertarget{_my_thread_8h_a16ba5bc83c5b9a60c81b5475be07f816}{\index{My\+Thread.\+h@{My\+Thread.\+h}!start\+\_\+of\+\_\+suspended@{start\+\_\+of\+\_\+suspended}}
+\index{start\+\_\+of\+\_\+suspended@{start\+\_\+of\+\_\+suspended}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{start\+\_\+of\+\_\+suspended}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ start\+\_\+of\+\_\+suspended ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_a16ba5bc83c5b9a60c81b5475be07f816}
+To keep track of suspended queue \hypertarget{_my_thread_8h_a66ff13e810c7af7d461ec2178f842c9a}{\index{My\+Thread.\+h@{My\+Thread.\+h}!start\+\_\+of\+\_\+terminated@{start\+\_\+of\+\_\+terminated}}
+\index{start\+\_\+of\+\_\+terminated@{start\+\_\+of\+\_\+terminated}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{start\+\_\+of\+\_\+terminated}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf queue\+Node}$\ast$ start\+\_\+of\+\_\+terminated ={\bf N\+U\+L\+L}}}\label{_my_thread_8h_a66ff13e810c7af7d461ec2178f842c9a}
+To keep track of terminated queue \hypertarget{_my_thread_8h_ae41c65732e352dffb0fc051a7f5a8b2f}{\index{My\+Thread.\+h@{My\+Thread.\+h}!start\+Execution\+Time@{start\+Execution\+Time}}
+\index{start\+Execution\+Time@{start\+Execution\+Time}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{start\+Execution\+Time}]{\setlength{\rightskip}{0pt plus 5cm}struct timeval start\+Execution\+Time}}\label{_my_thread_8h_ae41c65732e352dffb0fc051a7f5a8b2f}
+\hypertarget{_my_thread_8h_a63dc352d29ac023dbe19b3d28b7cd41d}{\index{My\+Thread.\+h@{My\+Thread.\+h}!temp\+For\+Stack@{temp\+For\+Stack}}
+\index{temp\+For\+Stack@{temp\+For\+Stack}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{temp\+For\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ temp\+For\+Stack}}\label{_my_thread_8h_a63dc352d29ac023dbe19b3d28b7cd41d}
+\hypertarget{_my_thread_8h_a5fb7c572958b9d030934749cdd2f178e}{\index{My\+Thread.\+h@{My\+Thread.\+h}!toggle@{toggle}}
+\index{toggle@{toggle}!My\+Thread.\+h@{My\+Thread.\+h}}
+\subsubsection[{toggle}]{\setlength{\rightskip}{0pt plus 5cm}int toggle}}\label{_my_thread_8h_a5fb7c572958b9d030934749cdd2f178e}

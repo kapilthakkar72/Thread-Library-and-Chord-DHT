@@ -1,0 +1,185 @@
+\hypertarget{_util_8h}{\section{Util.\+h File Reference}
+\label{_util_8h}\index{Util.\+h@{Util.\+h}}
+}
+{\ttfamily \#include $<$algorithm$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_util_8h_aead72f43d236eb5ab5b095e4f7b90e64}{process\+Message} (char $\ast$buffer)
+\item 
+void \hyperlink{_util_8h_a818cbabdc63011700c84b7b873685f06}{fix\+Fingers} ()
+\item 
+string \hyperlink{_util_8h_a0bbf39d3c1d92799e3c759605fb6083e}{get\+My\+I\+P\+Adress} ()
+\item 
+int \hyperlink{_util_8h_af5b8943b667d4694f9d891e7118250a0}{get\+My\+Key\+Value} ()
+\item 
+int \hyperlink{_util_8h_adec95f2978509d866eeabf2f200ce0af}{belongs\+O\+C} (int a, int b, int c)
+\item 
+int \hyperlink{_util_8h_af42f008a5f608cca7ebb8be5b7c4b8d7}{belongs\+C\+O} (int a, int b, int c)
+\item 
+int \hyperlink{_util_8h_a5317db3b4755fd41a93bca705b5d6fab}{belongs\+O\+O} (int a, int b, int c)
+\item 
+void \hyperlink{_util_8h_a6f4177cecd8b73d7567019b6f0ecd47b}{Split\+String} (string message, string delimiter, string result\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{_util_8h_afb200dd238a377410604486ba3ccd0fc}{closest\+Preceding\+Finger} (int key)
+\item 
+void \hyperlink{_util_8h_a38be9824bddad9f23978872255805827}{create\+Ring} ()
+\item 
+void \hyperlink{_util_8h_adfbfeace715d21d50636c0ce6c4db2fb}{join\+To\+Network} (string use\+I\+P, int use\+Port)
+\item 
+void \hyperlink{_util_8h_a510afe8cbabbb7a210be8e98182e8dd7}{accept\+Connection} ()
+\item 
+void $\ast$ \hyperlink{_util_8h_a980464bef7d2f4405935d3775a6a2a36}{send\+Message} (string ip\+\_\+address, int port, string message)
+\item 
+int \hyperlink{_util_8h_a9ac83abb1b9ec3c47f0a14785ae8a0f6}{compute\+Hash} (string key\+Data)
+\item 
+void \hyperlink{_util_8h_ac75d66a17fc7d71d98670a5c7e41a116}{put\+Message} (string key, string value)
+\item 
+void \hyperlink{_util_8h_ab5fba74dd85c23440d84ee20acfad021}{get\+Message} (string key)
+\item 
+string \hyperlink{_util_8h_aad4ce9adbb1cc8d62cc6e2beea5490db}{dump\+Node} ()
+\item 
+string \hyperlink{_util_8h_aa107cb108b321ad3f7d102b49f13f164}{my\+Keys} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_util_8h_a510afe8cbabbb7a210be8e98182e8dd7}{\index{Util.\+h@{Util.\+h}!accept\+Connection@{accept\+Connection}}
+\index{accept\+Connection@{accept\+Connection}!Util.\+h@{Util.\+h}}
+\subsubsection[{accept\+Connection}]{\setlength{\rightskip}{0pt plus 5cm}void accept\+Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_a510afe8cbabbb7a210be8e98182e8dd7}
+This function will work as a server to listen on a port. Recieve Message and send for processing. \hypertarget{_util_8h_af42f008a5f608cca7ebb8be5b7c4b8d7}{\index{Util.\+h@{Util.\+h}!belongs\+C\+O@{belongs\+C\+O}}
+\index{belongs\+C\+O@{belongs\+C\+O}!Util.\+h@{Util.\+h}}
+\subsubsection[{belongs\+C\+O}]{\setlength{\rightskip}{0pt plus 5cm}int belongs\+C\+O (
+\begin{DoxyParamCaption}
+\item[{int}]{a, }
+\item[{int}]{b, }
+\item[{int}]{c}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_af42f008a5f608cca7ebb8be5b7c4b8d7}
+a belongs to \mbox{[}b,c) \hypertarget{_util_8h_adec95f2978509d866eeabf2f200ce0af}{\index{Util.\+h@{Util.\+h}!belongs\+O\+C@{belongs\+O\+C}}
+\index{belongs\+O\+C@{belongs\+O\+C}!Util.\+h@{Util.\+h}}
+\subsubsection[{belongs\+O\+C}]{\setlength{\rightskip}{0pt plus 5cm}int belongs\+O\+C (
+\begin{DoxyParamCaption}
+\item[{int}]{a, }
+\item[{int}]{b, }
+\item[{int}]{c}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_adec95f2978509d866eeabf2f200ce0af}
+a belongs to (b,c\mbox{]} \hypertarget{_util_8h_a5317db3b4755fd41a93bca705b5d6fab}{\index{Util.\+h@{Util.\+h}!belongs\+O\+O@{belongs\+O\+O}}
+\index{belongs\+O\+O@{belongs\+O\+O}!Util.\+h@{Util.\+h}}
+\subsubsection[{belongs\+O\+O}]{\setlength{\rightskip}{0pt plus 5cm}int belongs\+O\+O (
+\begin{DoxyParamCaption}
+\item[{int}]{a, }
+\item[{int}]{b, }
+\item[{int}]{c}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_a5317db3b4755fd41a93bca705b5d6fab}
+a belongs to (b,c) \hypertarget{_util_8h_afb200dd238a377410604486ba3ccd0fc}{\index{Util.\+h@{Util.\+h}!closest\+Preceding\+Finger@{closest\+Preceding\+Finger}}
+\index{closest\+Preceding\+Finger@{closest\+Preceding\+Finger}!Util.\+h@{Util.\+h}}
+\subsubsection[{closest\+Preceding\+Finger}]{\setlength{\rightskip}{0pt plus 5cm}int closest\+Preceding\+Finger (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_afb200dd238a377410604486ba3ccd0fc}
+This function will return the row of finger table, of which netry is the closest to the passed key as an argumnt. \hypertarget{_util_8h_a9ac83abb1b9ec3c47f0a14785ae8a0f6}{\index{Util.\+h@{Util.\+h}!compute\+Hash@{compute\+Hash}}
+\index{compute\+Hash@{compute\+Hash}!Util.\+h@{Util.\+h}}
+\subsubsection[{compute\+Hash}]{\setlength{\rightskip}{0pt plus 5cm}int compute\+Hash (
+\begin{DoxyParamCaption}
+\item[{string}]{key\+Data}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_a9ac83abb1b9ec3c47f0a14785ae8a0f6}
+This function will be used to compute hash for a given key in string format. \hypertarget{_util_8h_a38be9824bddad9f23978872255805827}{\index{Util.\+h@{Util.\+h}!create\+Ring@{create\+Ring}}
+\index{create\+Ring@{create\+Ring}!Util.\+h@{Util.\+h}}
+\subsubsection[{create\+Ring}]{\setlength{\rightskip}{0pt plus 5cm}void create\+Ring (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_a38be9824bddad9f23978872255805827}
+This function will create the ring and will initialise chord network. \hypertarget{_util_8h_aad4ce9adbb1cc8d62cc6e2beea5490db}{\index{Util.\+h@{Util.\+h}!dump\+Node@{dump\+Node}}
+\index{dump\+Node@{dump\+Node}!Util.\+h@{Util.\+h}}
+\subsubsection[{dump\+Node}]{\setlength{\rightskip}{0pt plus 5cm}string dump\+Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_aad4ce9adbb1cc8d62cc6e2beea5490db}
+This function will provide all information stored at this node. \hypertarget{_util_8h_a818cbabdc63011700c84b7b873685f06}{\index{Util.\+h@{Util.\+h}!fix\+Fingers@{fix\+Fingers}}
+\index{fix\+Fingers@{fix\+Fingers}!Util.\+h@{Util.\+h}}
+\subsubsection[{fix\+Fingers}]{\setlength{\rightskip}{0pt plus 5cm}void fix\+Fingers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_a818cbabdc63011700c84b7b873685f06}
+This will be called periodically to correct finger table entries whenever new node will join the network. \hypertarget{_util_8h_ab5fba74dd85c23440d84ee20acfad021}{\index{Util.\+h@{Util.\+h}!get\+Message@{get\+Message}}
+\index{get\+Message@{get\+Message}!Util.\+h@{Util.\+h}}
+\subsubsection[{get\+Message}]{\setlength{\rightskip}{0pt plus 5cm}void get\+Message (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_ab5fba74dd85c23440d84ee20acfad021}
+This function will help to process get value of a given key. \hypertarget{_util_8h_a0bbf39d3c1d92799e3c759605fb6083e}{\index{Util.\+h@{Util.\+h}!get\+My\+I\+P\+Adress@{get\+My\+I\+P\+Adress}}
+\index{get\+My\+I\+P\+Adress@{get\+My\+I\+P\+Adress}!Util.\+h@{Util.\+h}}
+\subsubsection[{get\+My\+I\+P\+Adress}]{\setlength{\rightskip}{0pt plus 5cm}string get\+My\+I\+P\+Adress (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_a0bbf39d3c1d92799e3c759605fb6083e}
+This function will return my I\+Pv4 I\+P Address \hypertarget{_util_8h_af5b8943b667d4694f9d891e7118250a0}{\index{Util.\+h@{Util.\+h}!get\+My\+Key\+Value@{get\+My\+Key\+Value}}
+\index{get\+My\+Key\+Value@{get\+My\+Key\+Value}!Util.\+h@{Util.\+h}}
+\subsubsection[{get\+My\+Key\+Value}]{\setlength{\rightskip}{0pt plus 5cm}int get\+My\+Key\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_af5b8943b667d4694f9d891e7118250a0}
+This Function will generate random keys based on the current time. \hypertarget{_util_8h_adfbfeace715d21d50636c0ce6c4db2fb}{\index{Util.\+h@{Util.\+h}!join\+To\+Network@{join\+To\+Network}}
+\index{join\+To\+Network@{join\+To\+Network}!Util.\+h@{Util.\+h}}
+\subsubsection[{join\+To\+Network}]{\setlength{\rightskip}{0pt plus 5cm}void join\+To\+Network (
+\begin{DoxyParamCaption}
+\item[{string}]{use\+I\+P, }
+\item[{int}]{use\+Port}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_adfbfeace715d21d50636c0ce6c4db2fb}
+This function will be called whenevr any new node will join the network. \hypertarget{_util_8h_aa107cb108b321ad3f7d102b49f13f164}{\index{Util.\+h@{Util.\+h}!my\+Keys@{my\+Keys}}
+\index{my\+Keys@{my\+Keys}!Util.\+h@{Util.\+h}}
+\subsubsection[{my\+Keys}]{\setlength{\rightskip}{0pt plus 5cm}string my\+Keys (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_aa107cb108b321ad3f7d102b49f13f164}
+This function will return all the (key,value) pair stored at this node. \hypertarget{_util_8h_aead72f43d236eb5ab5b095e4f7b90e64}{\index{Util.\+h@{Util.\+h}!process\+Message@{process\+Message}}
+\index{process\+Message@{process\+Message}!Util.\+h@{Util.\+h}}
+\subsubsection[{process\+Message}]{\setlength{\rightskip}{0pt plus 5cm}void process\+Message (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_aead72f43d236eb5ab5b095e4f7b90e64}
+Process the recieved message and take appropriate action. \hypertarget{_util_8h_ac75d66a17fc7d71d98670a5c7e41a116}{\index{Util.\+h@{Util.\+h}!put\+Message@{put\+Message}}
+\index{put\+Message@{put\+Message}!Util.\+h@{Util.\+h}}
+\subsubsection[{put\+Message}]{\setlength{\rightskip}{0pt plus 5cm}void put\+Message (
+\begin{DoxyParamCaption}
+\item[{string}]{key, }
+\item[{string}]{value}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_ac75d66a17fc7d71d98670a5c7e41a116}
+This function will help to start process of put (key,value) pair to corresponding node. \hypertarget{_util_8h_a980464bef7d2f4405935d3775a6a2a36}{\index{Util.\+h@{Util.\+h}!send\+Message@{send\+Message}}
+\index{send\+Message@{send\+Message}!Util.\+h@{Util.\+h}}
+\subsubsection[{send\+Message}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ send\+Message (
+\begin{DoxyParamCaption}
+\item[{string}]{ip\+\_\+address, }
+\item[{int}]{port, }
+\item[{string}]{message}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_a980464bef7d2f4405935d3775a6a2a36}
+This function will work as a client and will help to send messages to other nodes. \hypertarget{_util_8h_a6f4177cecd8b73d7567019b6f0ecd47b}{\index{Util.\+h@{Util.\+h}!Split\+String@{Split\+String}}
+\index{Split\+String@{Split\+String}!Util.\+h@{Util.\+h}}
+\subsubsection[{Split\+String}]{\setlength{\rightskip}{0pt plus 5cm}void Split\+String (
+\begin{DoxyParamCaption}
+\item[{string}]{message, }
+\item[{string}]{delimiter, }
+\item[{string}]{result\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{_util_8h_a6f4177cecd8b73d7567019b6f0ecd47b}
+This function will split the string into multiple strings by making use of delimiter 

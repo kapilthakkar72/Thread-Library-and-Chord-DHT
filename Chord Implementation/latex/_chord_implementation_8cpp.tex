@@ -1,0 +1,135 @@
+\hypertarget{_chord_implementation_8cpp}{\section{Chord\+Implementation.\+cpp File Reference}
+\label{_chord_implementation_8cpp}\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+}
+{\ttfamily \#include \char`\"{}stdio.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sys/types.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sys/socket.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}netinet/in.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}My\+Thread.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+{\ttfamily \#include $<$ifaddrs.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Util.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_fingertable_entry}{Fingertable\+Entry}
+\item 
+class \hyperlink{class_finger_table}{Finger\+Table}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_chord_implementation_8cpp_a6821bafc3c88dfb2e433a095df9940c6}{B\+U\+F\+\_\+\+S\+I\+Z\+E}~2000
+\item 
+\#define \hyperlink{_chord_implementation_8cpp_ae3cd7b2c208608c1c1b5dfd5b5a75e37}{Number\+Finger\+Entries}~16
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{_chord_implementation_8cpp_a980464bef7d2f4405935d3775a6a2a36}{send\+Message} (string ip\+\_\+address, int port, string message)
+\item 
+void \hyperlink{_chord_implementation_8cpp_a818cbabdc63011700c84b7b873685f06}{fix\+Fingers} ()
+\item 
+void \hyperlink{_chord_implementation_8cpp_a87fc0401d2ddfe9fb2f2e4b016b1a009}{user\+Interaction} ()
+\item 
+void \hyperlink{_chord_implementation_8cpp_aead72f43d236eb5ab5b095e4f7b90e64}{process\+Message} (char $\ast$buffer)
+\item 
+int \hyperlink{_chord_implementation_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_chord_implementation_8cpp_ac50a20bd04e31b7b00c7f7c744a0c67b}{socket\+I\+D}
+\item 
+string \hyperlink{_chord_implementation_8cpp_a9c2840eabcf2af6e30c6db39cd81610e}{My\+I\+P}
+\item 
+int \hyperlink{_chord_implementation_8cpp_a7fa106b576fefcb0d2b399a729da16a4}{My\+Port}
+\item 
+int \hyperlink{_chord_implementation_8cpp_afc5d79eb9df51a786ce6089098d0b83b}{My\+Key}
+\item 
+\hyperlink{class_finger_table}{Finger\+Table} \hyperlink{_chord_implementation_8cpp_afe6f5cd5d86842f346dcccb21ef0353a}{Ring\+Info}
+\item 
+map$<$ string, string $>$ \hyperlink{_chord_implementation_8cpp_abeca29e636fa9f595918a10f321892f9}{database}
+\item 
+int \hyperlink{_chord_implementation_8cpp_a2eac002ff23cfc1c561a8f9e3822526b}{key\+Redistributed}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_chord_implementation_8cpp_a6821bafc3c88dfb2e433a095df9940c6}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!B\+U\+F\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+\_\+\+S\+I\+Z\+E}}
+\index{B\+U\+F\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+\_\+\+S\+I\+Z\+E}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{B\+U\+F\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+\_\+\+S\+I\+Z\+E~2000}}\label{_chord_implementation_8cpp_a6821bafc3c88dfb2e433a095df9940c6}
+\hypertarget{_chord_implementation_8cpp_ae3cd7b2c208608c1c1b5dfd5b5a75e37}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!Number\+Finger\+Entries@{Number\+Finger\+Entries}}
+\index{Number\+Finger\+Entries@{Number\+Finger\+Entries}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{Number\+Finger\+Entries}]{\setlength{\rightskip}{0pt plus 5cm}\#define Number\+Finger\+Entries~16}}\label{_chord_implementation_8cpp_ae3cd7b2c208608c1c1b5dfd5b5a75e37}
+
+
+\subsection{Function Documentation}
+\hypertarget{_chord_implementation_8cpp_a818cbabdc63011700c84b7b873685f06}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!fix\+Fingers@{fix\+Fingers}}
+\index{fix\+Fingers@{fix\+Fingers}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{fix\+Fingers}]{\setlength{\rightskip}{0pt plus 5cm}void fix\+Fingers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_chord_implementation_8cpp_a818cbabdc63011700c84b7b873685f06}
+This will be called periodically to correct finger table entries whenever new node will join the network. \hypertarget{_chord_implementation_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!main@{main}}
+\index{main@{main}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{_chord_implementation_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+\hypertarget{_chord_implementation_8cpp_aead72f43d236eb5ab5b095e4f7b90e64}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!process\+Message@{process\+Message}}
+\index{process\+Message@{process\+Message}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{process\+Message}]{\setlength{\rightskip}{0pt plus 5cm}void process\+Message (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}}\label{_chord_implementation_8cpp_aead72f43d236eb5ab5b095e4f7b90e64}
+Process the recieved message and take appropriate action. \hypertarget{_chord_implementation_8cpp_a980464bef7d2f4405935d3775a6a2a36}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!send\+Message@{send\+Message}}
+\index{send\+Message@{send\+Message}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{send\+Message}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ send\+Message (
+\begin{DoxyParamCaption}
+\item[{string}]{ip\+\_\+address, }
+\item[{int}]{port, }
+\item[{string}]{message}
+\end{DoxyParamCaption}
+)}}\label{_chord_implementation_8cpp_a980464bef7d2f4405935d3775a6a2a36}
+This function will work as a client and will help to send messages to other nodes. \hypertarget{_chord_implementation_8cpp_a87fc0401d2ddfe9fb2f2e4b016b1a009}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!user\+Interaction@{user\+Interaction}}
+\index{user\+Interaction@{user\+Interaction}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{user\+Interaction}]{\setlength{\rightskip}{0pt plus 5cm}void user\+Interaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_chord_implementation_8cpp_a87fc0401d2ddfe9fb2f2e4b016b1a009}
+To accept commands from the user. 
+
+\subsection{Variable Documentation}
+\hypertarget{_chord_implementation_8cpp_abeca29e636fa9f595918a10f321892f9}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!database@{database}}
+\index{database@{database}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{database}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string,string$>$ database}}\label{_chord_implementation_8cpp_abeca29e636fa9f595918a10f321892f9}
+To store Key Value pair. \hypertarget{_chord_implementation_8cpp_a2eac002ff23cfc1c561a8f9e3822526b}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!key\+Redistributed@{key\+Redistributed}}
+\index{key\+Redistributed@{key\+Redistributed}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{key\+Redistributed}]{\setlength{\rightskip}{0pt plus 5cm}int key\+Redistributed}}\label{_chord_implementation_8cpp_a2eac002ff23cfc1c561a8f9e3822526b}
+\hypertarget{_chord_implementation_8cpp_a9c2840eabcf2af6e30c6db39cd81610e}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!My\+I\+P@{My\+I\+P}}
+\index{My\+I\+P@{My\+I\+P}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{My\+I\+P}]{\setlength{\rightskip}{0pt plus 5cm}string My\+I\+P}}\label{_chord_implementation_8cpp_a9c2840eabcf2af6e30c6db39cd81610e}
+\hypertarget{_chord_implementation_8cpp_afc5d79eb9df51a786ce6089098d0b83b}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!My\+Key@{My\+Key}}
+\index{My\+Key@{My\+Key}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{My\+Key}]{\setlength{\rightskip}{0pt plus 5cm}int My\+Key}}\label{_chord_implementation_8cpp_afc5d79eb9df51a786ce6089098d0b83b}
+\hypertarget{_chord_implementation_8cpp_a7fa106b576fefcb0d2b399a729da16a4}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!My\+Port@{My\+Port}}
+\index{My\+Port@{My\+Port}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{My\+Port}]{\setlength{\rightskip}{0pt plus 5cm}int My\+Port}}\label{_chord_implementation_8cpp_a7fa106b576fefcb0d2b399a729da16a4}
+\hypertarget{_chord_implementation_8cpp_afe6f5cd5d86842f346dcccb21ef0353a}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!Ring\+Info@{Ring\+Info}}
+\index{Ring\+Info@{Ring\+Info}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{Ring\+Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Finger\+Table} Ring\+Info}}\label{_chord_implementation_8cpp_afe6f5cd5d86842f346dcccb21ef0353a}
+\hypertarget{_chord_implementation_8cpp_ac50a20bd04e31b7b00c7f7c744a0c67b}{\index{Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}!socket\+I\+D@{socket\+I\+D}}
+\index{socket\+I\+D@{socket\+I\+D}!Chord\+Implementation.\+cpp@{Chord\+Implementation.\+cpp}}
+\subsubsection[{socket\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}int socket\+I\+D}}\label{_chord_implementation_8cpp_ac50a20bd04e31b7b00c7f7c744a0c67b}

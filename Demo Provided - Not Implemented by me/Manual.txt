@@ -1,0 +1,4 @@
+1. Give executable rights to file by:
+chmod 755 dht-sol
+
+2. Launch by ./dht-sol
